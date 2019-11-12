@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	
+	<bean id="employee2" class="com.lti.model.Employee" scope="prototype">
+	<constructor-arg index="0" value="1001"/>
+	<constructor-arg index="1" value="Prajwal"/>
+	<constructor-arg index="2" value="100"/>
+	<property name="address" ref="address"/>
+	</bean>
+	
+	<bean id="employee3" class="com.lti.model.Employee" scope="prototype">
+	<constructor-arg index="0" value="1002"/>
+	<constructor-arg index="1" value="Moh"/>
+	<constructor-arg index="2" value="50"/>
+	<property name="address" ref="address"/>
+	</bean>
+	
+	<bean id="employee" class="com.lti.model.Employee" scope="prototype">
+	<property name="employeeId" value="1000"/>
+	<property name="employeeName" value="Keton"/>
+	<property name="employeeSalary" value="5000"/>
+	<property name="address" ref="address"/> 
+	</bean>
+	
+	<bean id="address" class="com.lti.model.Address">
+	<property name="city" value="Panchgani"/>
+	<property name="street" value="Sydney"/> 
+	<property name="pin" value="410210"/> 
+	</bean>
+	
+	
+
+	<bean id="service" class="com.lti.service.EmployeeServiceImpl" scope="singleton">
+	<property name="dao" ref="dao"></property>
+	</bean>
+		<bean id="dao" class="com.lti.dao.EmployeeDaoImpl" scope="singleton">
+		<property name="employees">
+	<list>
+	<ref bean="employee"/>
+	</list>
+	
+	</property>
+	
+	
+	</bean>
+	</beans>
