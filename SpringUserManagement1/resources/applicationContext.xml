@@ -4,20 +4,21 @@
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
-
-
-
-	<bean id="employee" class="com.lti.model.Employee" scope="prototype">
-	<property name="employeeId" value="100"/>
-	<property name="employeeName" value="Ketan"/>
-	<property name="employeeSalary" value="100000"/>
+	
+	<bean id="user" class="com.lti.model.Users" scope="prototype">
+	<property name="username" value="ketan"/>
+	<property name="password" value="keepcalm"/>
+	<property name="firstname" value="Ketan"/>
+	<property name="lastname" value="Ghotane"/> 
+	<property name="mobilenumber" value="9769500114"/> 
 	</bean>
 	
-	<bean id="service" class="com.lti.service.EmployeeServiceImpl" scope="singleton">
-		<property name="dao" ref="dao"/>
-	</bean>
 	
-	<bean id="dao" class="com.lti.dao.EmployeeDaoImpl" scope="singleton">
+
+	<bean id="service" class="com.lti.service.UserServiceImpl" scope="singleton">
+	<property name="dao" ref="dao"></property>
+	</bean>
+		<bean id="dao" class="com.lti.dao.UserDaoImpl" scope="singleton">
 		<property name="template" ref="template"/>
 	
 	</bean>
@@ -33,5 +34,4 @@
 		<property name="password" value="hr"/>
 	
 	</bean>
-
 </beans>

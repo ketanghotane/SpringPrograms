@@ -9,10 +9,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.lti.model.Employee;
 import com.lti.service.EmployeeService;
 
-public class Main {
+public class MainAutowire {
 	public static void main(String[] args) {
 		
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextAutowire2.xml");
 		
 		
 		

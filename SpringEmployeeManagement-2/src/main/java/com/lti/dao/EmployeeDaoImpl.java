@@ -11,6 +11,13 @@ public class EmployeeDaoImpl  implements EmployeeDao{
 	private JdbcTemplate template= null;
 	
 	
+	
+	
+	public EmployeeDaoImpl(JdbcTemplate template) {
+		this.template=template;
+		// TODO Auto-generated constructor stub
+	}
+
 	private static final String INSERT_EMP_RECORD="Insert into empl(emp_id,emp_name,emp_sal) values(emp_empid.nextval,?,?)";
 	private static final String DELETE_EMP_RECORD="Delete from empl where emp_id=?";
 	private static final String UPDATE_EMP_RECORD="Update emp set emp_name=?,emp_sal=?,emp_id=?";

@@ -9,6 +9,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	
 	private EmployeeDao dao;// = new 
+	
+	public EmployeeServiceImpl(EmployeeDao dao) {
+		this.dao=dao;
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean addEmployee(Employee employee) {
 		int result = getDao().createEmployee(employee);
 		if(result == 1){
